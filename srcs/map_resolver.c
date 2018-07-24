@@ -6,7 +6,7 @@
 /*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 16:49:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 20:55:22 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 20:57:19 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,7 +46,7 @@ int		ft_check_square(t_map *map, int i, int j, int square)
 
 	limit_i = i + square;
 	limit_j = j + square;
-	while (i < limit_i)
+	while (i <= limit_i)
 	{
 		j = 0;
 		while (j < limit_j)
