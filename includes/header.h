@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   header.h                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 16:53:41 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 13:35:47 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 18:13:39 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -49,8 +49,12 @@ int					ft_check_error(t_map *map, char *argv);
 int					ft_check_map(char *argv);
 void				ft_check_height(t_map *map, char *argv);
 void				ft_check_width(t_map *map, char *argv);
+void				ft_final_check(t_map *map, char *argv, int x, int i);
 void				ft_do_map(t_map *map, char *argv, int x);
-void				ft_display_map(char **tab);
+void				ft_display_map(t_map *map);
 int					ft_char_to_tab(char **tab, char buf, int *i, int *j);
+void				ft_resolve_map(t_map *map);
+int					ft_check_square(t_map *map, int i, int j, int square);
+void				ft_square_found(t_map *map, int i, int j, int square);
 
 #endif

@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   map_create.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 20:38:56 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 13:35:27 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 17:03:25 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/header.h"
 
-int	ft_char_to_tab(char **tab, char buf, int *i, int *j)
+int		ft_char_to_tab(char **tab, char buf, int *i, int *j)
 {
 	if (buf == '\n')
 	{
@@ -56,17 +56,6 @@ void	ft_do_map(t_map *map, char *argv, int x)
 		}
 	}
 	tab[i] = NULL;
-	ft_display_map(tab);
-}
-
-void	ft_display_map(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		ft_putstr(tab[i]);
-		i++;
-	}
+	map->tab = tab;
+	ft_resolve_map(map);
 }

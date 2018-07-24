@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   fcts.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 16:53:54 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 13:36:32 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 17:17:39 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -40,7 +40,7 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_atoi(char *str)
+int		ft_atoi(char *str)
 {
 	int		i;
 	long	nb;

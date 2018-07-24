@@ -3,15 +3,22 @@
 /*                                                              /             */
 /*   map_check.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 16:59:34 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/23 21:13:15 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 17:12:39 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/header.h"
+
+void	ft_final_check(t_map *map, char *argv, int x, int i)
+{
+	if (x <= 0)
+		print_error();
+	(map->height * x) != (i) ? print_error() : ft_do_map(map, argv, x);
+}
 
 void	ft_check_width(t_map *map, char *argv)
 {
@@ -39,7 +46,7 @@ void	ft_check_width(t_map *map, char *argv)
 		if (buf != '\n' && y > 0)
 			x++;
 	}
-	(map->height * x) != (i) ? print_error() : ft_do_map(map, argv, x);
+	ft_final_check(map, argv, x, i);
 }
 
 void	ft_check_height(t_map *map, char *argv)

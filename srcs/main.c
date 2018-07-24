@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   main.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 16:59:26 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 13:03:00 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 16:46:29 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,8 +24,6 @@ int		main(int argc, char **argv)
 	{
 		if (ft_check_map(argv[i]) == 1)
 			print_error();
-		else
-			ft_putstr("sucess");
 		i++;
 	}
 	return (0);
