@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   header.h                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: nathan <nathan@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 16:53:41 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 11:58:07 by nathan      ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 13:35:47 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,5 +51,6 @@ void				ft_check_height(t_map *map, char *argv);
 void				ft_check_width(t_map *map, char *argv);
 void				ft_do_map(t_map *map, char *argv, int x);
 void				ft_display_map(char **tab);
+int					ft_char_to_tab(char **tab, char buf, int *i, int *j);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 16:53:54 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/23 18:36:08 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 13:36:32 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,12 +38,6 @@ int		ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-void	print_error(void)
-{
-	write(2, "map error\n", 10);
-	exit(1);
 }
 
 int	ft_atoi(char *str)
