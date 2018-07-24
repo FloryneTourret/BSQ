@@ -6,7 +6,7 @@
 /*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 16:49:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 20:57:19 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 21:55:54 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,8 +19,8 @@ void	ft_resolve_map(t_map *map)
 	int i;
 	int j;
 
-	i = 1;
-	j = 0;
+	i = 0;
+	j = -1;
 	square = map->height > map->width ? map->width : map->height;
 	while (square > 0)
 	{
@@ -32,7 +32,7 @@ void	ft_resolve_map(t_map *map)
 				(ft_check_square(map, i, j, square) == 0))
 					ft_display_map(map);
 			}
-			j = 0;
+			j = -1;
 		}
 		i = 0;
 		square--;
@@ -43,12 +43,14 @@ int		ft_check_square(t_map *map, int i, int j, int square)
 {
 	int	limit_i;
 	int limit_j;
+	int	k;
 
-	limit_i = i + square;
+	limit_i = i + square - 1;
 	limit_j = j + square;
+	k = j;
 	while (i <= limit_i)
 	{
-		j = 0;
+		j = k;
 		while (j < limit_j)
 		{
 			if (map->tab[i][j] == map->obs)
@@ -57,28 +59,30 @@ int		ft_check_square(t_map *map, int i, int j, int square)
 		}
 		i++;
 	}
-	ft_square_found(map, limit_i, limit_j, square);
+	i = limit_i - square + 1;
+	j = limit_j - square;
+	ft_square_found(map, i, j, square);
 	return (0);
 }
 
-void	ft_square_found(t_map *map, int limit_i, int limit_j, int square)
+void	ft_square_found(t_map *map, int i, int j, int square)
 {
-	int	i;
-	int j;
+	int	limit_i;
+	int limit_j;
+	int	k;
 
-	i = limit_i - square;
-	j = limit_j - square - 1;
+	limit_i = i + square - 1;
+	limit_j = j + square;
+	k = j;
 	while (i <= limit_i)
 	{
+		j = k;
 		while (j < limit_j)
 		{
 			if (map->tab[i][j] == map->empty)
-			{
 				map->tab[i][j] = 'x';
-				j++;
-			}
+			j++;
 		}
-		j = 0;
 		i++;
 	}
 }
