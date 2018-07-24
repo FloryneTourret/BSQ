@@ -6,7 +6,7 @@
 /*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 17:00:51 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 17:40:36 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 22:45:42 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,7 +23,7 @@ void	ft_display_map(t_map *map)
 		ft_putstr(map->tab[i]);
 		i++;
 	}
-	exit(101);
+	exit(0);
 }
 
 void	print_error(void)

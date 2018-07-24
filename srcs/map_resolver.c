@@ -6,7 +6,7 @@
 /*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 16:49:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 22:05:50 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 22:41:08 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,7 +46,7 @@ int		ft_check_square(t_map *map, int i, int j, int square)
 	int	k;
 
 	limit_i = i + square - 1;
-	limit_j = j + square;
+	limit_j = j + square - 1;
 	k = j;
 	while (i <= limit_i)
 	{
@@ -80,7 +80,7 @@ void	ft_square_found(t_map *map, int i, int j, int square)
 		while (j <= limit_j)
 		{
 			if (map->tab[i][j] == map->empty)
-				map->tab[i][j] = 'x';
+				map->tab[i][j] = map->sqr;
 			j++;
 		}
 		i++;
