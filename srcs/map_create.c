@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   map_create.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: nathan <nathan@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 20:38:56 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 05:20:38 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 11:58:20 by nathan      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,11 +51,18 @@ void	ft_do_map(t_map *map, char *argv, int x)
 		}
 	}
 	tab[i] = NULL;
-	ft_display_map(map);
+	ft_display_map(tab);
 }
 
-void	ft_display_map(t_map *map)
+void	ft_display_map(char **tab)
 {
-	map->height = 0;
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		ft_putstr(tab[i]);
+		i++;
+	}
 	ft_putstr("Je peux afficher la map ! \n");
 }
