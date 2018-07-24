@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   map_resolver.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 16:49:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 20:50:13 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/24 20:55:22 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -68,7 +68,7 @@ void	ft_square_found(t_map *map, int limit_i, int limit_j, int square)
 
 	i = limit_i - square;
 	j = limit_j - square - 1;
-	while (i < limit_i)
+	while (i <= limit_i)
 	{
 		while (j < limit_j)
 		{
