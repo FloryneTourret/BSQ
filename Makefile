@@ -3,10 +3,10 @@
 #                                                               /              #
 #    Makefile                                         .::    .:/ .      .::    #
 #                                                  +:+:+   +:    +:  +:+:+     #
-#    By: ftourret <marvin@le-101.fr>                +:+   +:    +:    +:+      #
+#    By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/07/23 23:09:40 by ftourret     #+#   ##    ##    #+#        #
-#    Updated: 2018/07/23 23:09:41 by ftourret    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/07/24 04:45:33 by ftourret    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -15,41 +15,28 @@ NAME = bsq
 
 FLAGS = -Wall -Wextra -Werror
 
-FILES = srcs/fcts.c srcs/main.c rush/rush00.c rush/rush01.c rush/rush02.c \
-		rush/rush03.c rush/rush04.c srcs/struct.c
+FILES = srcs/fcts.c srcs/main.c srcs/map_check.c srcs/map_create.c
 
-HEADER = header.h
+HEADER = includes/header.h
 
-OBJ = fcts.o main.o rush00.o rush01.o rush02.o rush03.o rush04.o struct.o
+OBJ = objs/fcts.o objs/main.o objs/map_check.o objs/map_create.o
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	gcc $(FLAGS) -o $(NAME) $(OBJ)
 
-fcts.o: srcs/fcts.c
-	gcc $(FLAGS) -c srcs/fcts.c -I $(HEADER)
+objs/fcts.o: srcs/fcts.c
+	gcc $(FLAGS) -o objs/fcts.o -c srcs/fcts.c -I $(HEADER)
 
-main.o : srcs/main.c
-	gcc $(FLAGS) -c srcs/main.c -I $(HEADER)
+objs/main.o : srcs/main.c
+	gcc $(FLAGS) -o objs/main.o -c srcs/main.c -I $(HEADER)
 
-rush00.o : rush/rush00.c
-	gcc $(FLAGS) -c rush/rush00.c -I $(HEADER)
+objs/map_check.o : srcs/map_check.c
+	gcc $(FLAGS) -o objs/map_check.o -c srcs/map_check.c -I $(HEADER)
 
-rush01.o : rush/rush01.c
-	gcc $(FLAGS) -c rush/rush01.c -I $(HEADER)
-
-rush02.o : rush/rush02.c
-	gcc $(FLAGS) -c rush/rush02.c -I $(HEADER)
-
-rush03.o : rush/rush03.c
-	gcc $(FLAGS) -c rush/rush03.c -I $(HEADER)
-
-rush04.o : rush/rush04.c
-	gcc $(FLAGS) -c rush/rush04.c -I $(HEADER)
-
-struct.o : srcs/struct.c
-	gcc $(FLAGS) -c srcs/struct.c -I $(HEADER)
+objs/map_create.o : srcs/map_create.c
+	gcc $(FLAGS) -o objs/map_create.o -c srcs/map_create.c -I $(HEADER)
 
 clean:
 	rm -rf $(OBJ)

@@ -44,7 +44,6 @@ void	ft_check_width(t_map *map, char *argv)
 
 void	ft_check_height(t_map *map, char *argv)
 {
-	int		i;
 	int		y;
 	int		fd;
 	char	buf;
@@ -67,8 +66,7 @@ void	ft_check_height(t_map *map, char *argv)
 void	ft_create_map(char *str, char *argv)
 {
 	int		i;
-	int		fd;
-	char	*height;
+	char	height[BUF_SIZE];
 	t_map	*map;
 	int		nb;
 
@@ -97,7 +95,6 @@ int		ft_check_map(char *argv)
 	int		i;
 	char	buf;
 	char	str[BUF_SIZE];
-	t_map	*map;
 
 	i = 0;
 	fd = open(argv, O_RDONLY);
