@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   map_check.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/07/23 16:59:34 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 18:56:10 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/07/25 19:14:59 by ftourret     #+#   ##    ##    #+#       */
+/*   Updated: 2018/07/25 19:24:18 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -90,10 +90,7 @@ void	ft_create_map(char *str, char *argv)
 	while (str[++i + 3] != '\0')
 		height[i] = str[i];
 	nb = ft_atoi(height);
-	if (nb <= 0)
-		print_error();
-	else
-		map->height = nb;
+	map->height = nb;
 	ft_check_height(map, argv);
 }
 
