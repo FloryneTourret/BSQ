@@ -1,78 +1,74 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   map_check.c                                      .::    .:/ .      .::   */
+/*   map_standard_check.c                             .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/07/25 19:14:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 20:57:57 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/07/25 20:03:59 by ftourret     #+#   ##    ##    #+#       */
+/*   Updated: 2018/07/25 20:57:31 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/header.h"
 
-void	ft_final_check(t_map *map, char *argv, int x, int i)
+void	ft_final_standard_check(t_map *map, char *argv, int x, int i)
 {
 	if (x <= 0)
 		print_error();
-	(map->height * x) != (i) ? print_error() : ft_do_map(map, argv, x);
+	(map->height * x) != (i) ? print_error() : ft_do_standard_map(map, argv, x);
 }
 
-void	ft_check_width(t_map *map, char *argv)
+void	ft_check_standard_width(t_map *map, char *argv)
 {
 	int		i;
 	int		y;
 	int		x;
-	int		fd;
-	char	buf;
+	int		j;
 
 	y = 0;
 	x = 0;
 	i = 0;
-	if ((fd = open(argv, O_RDONLY)) == -1)
-		return ;
-	while (read(fd, &buf, 1))
+	j = 0;
+	while (argv[j])
 	{
-		if (y > 0 && (buf == map->empty || buf == map->obs || buf == map->sqr))
+		if (y > 0 && (argv[j] == map->empty || argv[j] == map->obs ||
+			argv[j] == map->sqr))
 			i++;
-		if (buf == '\n' && y != map->height)
+		if (argv[j] == '\n' && y != map->height)
 		{
 			y++;
 			x = 0;
 		}
-		if (buf != '\n' && y > 0)
+		if (argv[j] != '\n' && y > 0)
 			x++;
+		j++;
 	}
-	close(fd) == -1 ? print_close_error() : ft_final_check(map, argv, x, i);
+	ft_final_standard_check(map, argv, x, i);
 }
 
-void	ft_check_height(t_map *map, char *argv)
+void	ft_check_standard_height(t_map *map, char *argv)
 {
 	int		y;
-	int		fd;
-	char	buf;
+	int		j;
 
 	y = 0;
-	fd = open(argv, O_RDONLY);
-	if (fd == -1)
-		return ;
-	while (read(fd, &buf, 1))
+	j = 0;
+	while (argv[j])
 	{
-		if (buf == '\n')
+		if (argv[j] == '\n')
 			y++;
+		j++;
 	}
 	y--;
-	if (close(fd) == -1)
-		return ;
 	if (y != map->height)
 		print_error();
 	else
-		ft_check_width(map, argv);
+		ft_check_standard_width(map, argv);
 }
 
-void	ft_create_map(char *str, char *argv)
+void	ft_create_standard_map(char *str, char *argv)
 {
 	int		i;
 	char	height[BUF_SIZE];
@@ -92,33 +88,29 @@ void	ft_create_map(char *str, char *argv)
 		height[i] = str[i];
 	nb = ft_atoi(height);
 	map->height = nb;
-	ft_check_height(map, argv);
+	ft_check_standard_height(map, argv);
 }
 
-int		ft_check_map(char *argv)
+int		ft_check_standard_map(char *argv)
 {
-	int		fd;
 	int		i;
-	char	buf;
+	int		j;
 	char	str[BUF_SIZE];
 
+	j = 0;
 	i = 0;
-	fd = open(argv, O_RDWR);
-	if (fd == -1)
-		return (1);
-	while (read(fd, &buf, 1))
+	while (argv[j])
 	{
-		if (buf != '\n')
+		if (argv[j] != '\n')
 		{
-			str[i] = buf;
+			str[i] = argv[j];
 			i++;
 		}
 		else
 			break ;
+		j++;
 	}
 	str[i] = '\0';
-	ft_create_map(str, argv);
-	if (close(fd) == -1)
-		return (1);
+	ft_create_standard_map(str, argv);
 	return (0);
 }
