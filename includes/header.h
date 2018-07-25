@@ -5,8 +5,8 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/07/23 16:53:41 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 11:27:29 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/07/25 11:38:20 by ftourret     #+#   ##    ##    #+#       */
+/*   Updated: 2018/07/25 11:38:23 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,6 +38,7 @@ int					ft_strlen(char *str);
 int					ft_atoi(char *str);
 void				ft_putnbr(int nb);
 void				print_error(void);
+void				print_close_error(void);
 void				ft_create_map(char *str, char *argv);
 int					ft_check_error(t_map *map, char *argv);
 int					ft_check_map(char *argv);

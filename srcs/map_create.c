@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   map_create.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 20:38:56 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 11:11:39 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 11:34:09 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,27 +37,24 @@ void	ft_do_map(t_map *map, char *argv, int x)
 	int		j;
 	int		fd;
 	char	buf;
-	char	**tab;
 
 	map->width = x;
 	i = 0;
 	j = 0;
 	fd = open(argv, O_RDONLY);
-	if ((tab = malloc(sizeof(char *) * (map->height + 1))) == NULL || fd == -1)
+	if ((map->tab = malloc(sizeof(char *) * (map->height + 1))) == NULL ||
+		fd == -1)
 		return ;
 	while (i < (map->height + 1))
 	{
-		if ((tab[i] = (char*)malloc(sizeof(char) * (map->width + 1))) == NULL)
+		if ((map->tab[i] = malloc(sizeof(char) * (map->width + 1))) == NULL)
 			return ;
 		while (read(fd, &buf, 1))
 		{
-			if (ft_char_to_tab(tab, buf, &i, &j) == 0)
+			if (ft_char_to_tab(map->tab, buf, &i, &j) == 0)
 				break ;
 		}
 	}
-	tab[i] = NULL;
-	map->tab = tab;
-	if (close(fd) == -1)
-		return ;
-	ft_resolve_map(map);
+	map->tab[i] = NULL;
+	close(fd) == -1 ? print_close_error() : ft_resolve_map(map);
 }
