@@ -6,7 +6,7 @@
 /*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 17:00:51 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 17:12:40 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 17:17:07 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,6 @@ void	ft_display_map(t_map *map)
 	}
 	i = 0;
 	free(map->tab);
-	exit(0);
 }
 
 void	print_error(void)
@@ -37,5 +36,4 @@ void	print_error(void)
 void	print_close_error(void)
 {
 	write(2, "close error\n", 12);
-	exit(1);
 }

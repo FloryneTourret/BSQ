@@ -6,7 +6,7 @@
 /*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 16:49:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 17:09:07 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 17:15:30 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,7 +22,7 @@ void	resolve_map_1(t_map *map)
 	ft_putchar('\n');
 }
 
-void	ft_resolve_map(t_map *map)
+int		ft_resolve_map(t_map *map)
 {
 	int	square;
 	int i;
@@ -42,13 +42,18 @@ void	ft_resolve_map(t_map *map)
 				if (((map->tab[i][j] == map->empty) &&
 				(ft_check_square(map, i, j, square) == 0)) ||
 				(i == map->height && j == map->width - 1))
+				{
 					ft_display_map(map);
+					return (0);
+				}
+
 			}
 			j = -1;
 		}
 		i = 0;
 		square--;
 	}
+	return (1);
 }
 
 int		ft_check_square(t_map *map, int i, int j, int square)
