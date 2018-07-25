@@ -6,20 +6,40 @@
 /*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 16:49:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 17:15:30 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 17:39:24 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/header.h"
 
-void	resolve_map_1(t_map *map)
+int		resolve_map_1(t_map *map, int *square, int *i, int *j)
 {
-	if (map->tab[1][0] == map->empty)
-		ft_putchar(map->sqr);
-	else
-		ft_putchar(map->obs);
-	ft_putchar('\n');
+	(*i) = 0;
+	(*j) = -1;
+	(*square) = map->height > map->width ? map->width : map->height;
+	if (map->height == 1 && map->width == 1)
+	{
+		if (map->tab[1][0] == map->empty)
+			ft_putchar(map->sqr);
+		else
+			ft_putchar(map->obs);
+		ft_putchar('\n');
+		return (0);
+	}
+	return (1);
+}
+
+int		ft_check_display(t_map *map, int i, int j, int square)
+{
+	if (((map->tab[i][j] == map->empty)
+		&& (ft_check_square(map, i, j, square) == 0))
+		|| (i == map->height && j == map->width - 1))
+	{
+		ft_display_map(map);
+		return (0);
+	}
+	return (1);
 }
 
 int		ft_resolve_map(t_map *map)
@@ -28,30 +48,22 @@ int		ft_resolve_map(t_map *map)
 	int i;
 	int j;
 
-	i = 0;
-	j = -1;
-	square = map->height > map->width ? map->width : map->height;
-	if (map->height == 1 && map->width == 1)
-		resolve_map_1(map);
-	while (square >= 0)
+	if (resolve_map_1(map, &square, &i, &j) == 1)
 	{
-		while (++i < map->height + 1 && map->tab[i + square])
+		while (square >= 0)
 		{
-			while (map->tab[i][++j] != '\n' && map->tab[i][j + square])
+			while (++i < map->height + 1 && map->tab[i + square])
 			{
-				if (((map->tab[i][j] == map->empty) &&
-				(ft_check_square(map, i, j, square) == 0)) ||
-				(i == map->height && j == map->width - 1))
+				while (map->tab[i][++j] != '\n' && map->tab[i][j + square])
 				{
-					ft_display_map(map);
-					return (0);
+					if (ft_check_display(map, i, j, square) == 0)
+						return (0);
 				}
-
+				j = -1;
 			}
-			j = -1;
+			i = 0;
+			square--;
 		}
-		i = 0;
-		square--;
 	}
 	return (1);
 }

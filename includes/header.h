@@ -6,7 +6,7 @@
 /*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/25 11:38:20 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 17:14:49 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 17:40:02 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,7 +48,9 @@ void				ft_final_check(t_map *map, char *argv, int x, int i);
 void				ft_do_map(t_map *map, char *argv, int x);
 void				ft_display_map(t_map *map);
 int					ft_char_to_tab(char **tab, char buf, int *i, int *j);
-int				ft_resolve_map(t_map *map);
+int					ft_resolve_map(t_map *map);
+int					resolve_map_1(t_map *map, int *square, int *i, int *j);
+int					ft_check_display(t_map *map, int i, int j, int square);
 int					ft_check_square(t_map *map, int i, int j, int square);
 void				ft_square_found(t_map *map, int i, int j, int square);
 
