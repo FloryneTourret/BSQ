@@ -6,7 +6,7 @@
 /*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 16:59:34 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 10:18:04 by fleonard    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 10:26:05 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,6 +46,8 @@ void	ft_check_width(t_map *map, char *argv)
 		if (buf != '\n' && y > 0)
 			x++;
 	}
+	if (close(fd) == -1)
+		return ;
 	ft_final_check(map, argv, x, i);
 }
 
@@ -65,6 +67,8 @@ void	ft_check_height(t_map *map, char *argv)
 			y++;
 	}
 	y--;
+	if (close(fd) == -1)
+		return ;
 	if (y != map->height)
 		print_error();
 	ft_check_width(map, argv);

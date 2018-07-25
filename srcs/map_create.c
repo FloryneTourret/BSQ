@@ -6,7 +6,7 @@
 /*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 20:38:56 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 17:03:25 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 10:34:01 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,5 +57,7 @@ void	ft_do_map(t_map *map, char *argv, int x)
 	}
 	tab[i] = NULL;
 	map->tab = tab;
+	if (close(fd) == -1)
+		return ;
 	ft_resolve_map(map);
 }
