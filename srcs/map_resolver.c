@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   map_resolver.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 16:49:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 11:04:51 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 11:20:12 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,7 +53,7 @@ int		ft_check_square(t_map *map, int i, int j, int square)
 		j = k;
 		while (j <= limit_j)
 		{
-			if (map->tab[i][j] == map->obs || map->tab[i][j + 1] == '\n')
+			if (map->tab[i][j] == map->obs || map->tab[i][j] == '\n')
 				return (1);
 			j++;
 		}
@@ -79,7 +79,7 @@ void	ft_square_found(t_map *map, int i, int j, int square)
 		j = k;
 		while (j <= limit_j)
 		{
-			if (map->tab[i][j] == map->empty && map->tab[i][j + 1] != '\n')
+			if (map->tab[i][j] == map->empty && map->tab[i][j] != '\n')
 				map->tab[i][j] = map->sqr;
 			j++;
 		}
