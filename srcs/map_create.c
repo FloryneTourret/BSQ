@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   map_create.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 20:38:56 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 11:56:23 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 16:22:50 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,12 +43,12 @@ void	ft_do_map(t_map *map, char *argv, int x)
 	j = 0;
 	fd = open(argv, O_RDONLY);
 	map->tab = NULL;
-	if ((map->tab = malloc(sizeof(char *) * (map->height))) == NULL ||
+	if ((map->tab = malloc(sizeof(char *) * (map->height + 2))) == NULL ||
 		fd == -1)
 		return ;
 	while (i < (map->height + 1))
 	{
-		if ((map->tab[i] = malloc(sizeof(char) * (map->width))) == NULL)
+		if ((map->tab[i] = malloc(sizeof(char) * (map->width + 1))) == NULL)
 			return ;
 		while (read(fd, &buf, 1))
 		{

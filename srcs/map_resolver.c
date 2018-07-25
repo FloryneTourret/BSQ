@@ -6,12 +6,21 @@
 /*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 16:49:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 11:34:01 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 16:22:08 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/header.h"
+
+void	resolve_map_1(t_map *map)
+{
+	if (map->tab[1][0] == map->empty)
+		ft_putchar(map->sqr);
+	else
+		ft_putchar(map->obs);
+	ft_putchar('\n');
+}
 
 void	ft_resolve_map(t_map *map)
 {
@@ -22,6 +31,8 @@ void	ft_resolve_map(t_map *map)
 	i = 0;
 	j = -1;
 	square = map->height > map->width ? map->width : map->height;
+	if (map->height == 1 && map->width == 1)
+		resolve_map_1(map);
 	while (square > 0)
 	{
 		while (++i < map->height && map->tab[i + square - 1])
