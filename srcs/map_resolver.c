@@ -6,7 +6,7 @@
 /*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 16:49:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/24 22:41:08 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 09:51:34 by fleonard    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,13 +45,13 @@ int		ft_check_square(t_map *map, int i, int j, int square)
 	int limit_j;
 	int	k;
 
-	limit_i = i + square - 1;
-	limit_j = j + square - 1;
+	limit_i = i + square;
+	limit_j = j + square;
 	k = j;
 	while (i <= limit_i)
 	{
 		j = k;
-		while (j < limit_j)
+		while (j <= limit_j)
 		{
 			if (map->tab[i][j] == map->obs)
 				return (1);
@@ -59,7 +59,7 @@ int		ft_check_square(t_map *map, int i, int j, int square)
 		}
 		i++;
 	}
-	i = limit_i - square + 1;
+	i = limit_i - square;
 	j = limit_j - square;
 	ft_square_found(map, i, j, square);
 	return (0);
@@ -72,14 +72,14 @@ void	ft_square_found(t_map *map, int i, int j, int square)
 	int	k;
 
 	limit_i = i + square - 1;
-	limit_j = j + square - 1;
+	limit_j = j + square;
 	k = j;
-	while (i <= limit_i)
+	while (i <= limit_i + 1)
 	{
 		j = k;
 		while (j <= limit_j)
 		{
-			if (map->tab[i][j] == map->empty)
+			if (map->tab[i][j] == map->empty && j <= (k + square))
 				map->tab[i][j] = map->sqr;
 			j++;
 		}
