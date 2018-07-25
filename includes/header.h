@@ -6,7 +6,7 @@
 /*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 16:53:41 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 10:25:29 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 11:27:29 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,12 +21,6 @@
 # include <errno.h>
 
 # define BUF_SIZE 	4096
-
-typedef struct		s_list
-{
-	struct s_list	*next;
-	char			data;
-}					t_list;
 
 typedef struct		s_map
 {
