@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   map_display.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 17:00:51 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 11:21:50 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 12:01:00 by ftourret    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,8 @@ void	ft_display_map(t_map *map)
 		ft_putstr(map->tab[i]);
 		i++;
 	}
+	i = 0;
+	free(map->tab);
 	exit(0);
 }
 
