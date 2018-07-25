@@ -6,7 +6,7 @@
 /*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 16:59:34 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 11:18:57 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 18:56:10 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -105,7 +105,7 @@ int		ft_check_map(char *argv)
 	char	str[BUF_SIZE];
 
 	i = 0;
-	fd = open(argv, O_RDONLY);
+	fd = open(argv, O_RDWR);
 	if (fd == -1)
 		return (1);
 	while (read(fd, &buf, 1))
