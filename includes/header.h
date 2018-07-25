@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   header.h                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: ftourret <ftourret@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/23 16:53:41 by naplouvi     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 10:25:29 by ftourret    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 11:13:40 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,6 +44,7 @@ int					ft_strlen(char *str);
 int					ft_atoi(char *str);
 void				ft_putnbr(int nb);
 void				print_error(void);
+void				print_close_error(void);
 void				ft_create_map(char *str, char *argv);
 int					ft_check_error(t_map *map, char *argv);
 int					ft_check_map(char *argv);
