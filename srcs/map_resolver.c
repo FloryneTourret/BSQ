@@ -6,7 +6,7 @@
 /*   By: naplouvi <naplouvi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/07/24 16:49:59 by ftourret     #+#   ##    ##    #+#       */
-/*   Updated: 2018/07/25 16:31:50 by naplouvi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/25 17:09:07 by naplouvi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,14 +33,15 @@ void	ft_resolve_map(t_map *map)
 	square = map->height > map->width ? map->width : map->height;
 	if (map->height == 1 && map->width == 1)
 		resolve_map_1(map);
-	while (square > 0)
+	while (square >= 0)
 	{
-		while (++i < map->height && map->tab[i + square])
+		while (++i < map->height + 1 && map->tab[i + square])
 		{
 			while (map->tab[i][++j] != '\n' && map->tab[i][j + square])
 			{
-				if ((map->tab[i][j] == map->empty) &&
-				(ft_check_square(map, i, j, square) == 0))
+				if (((map->tab[i][j] == map->empty) &&
+				(ft_check_square(map, i, j, square) == 0)) ||
+				(i == map->height && j == map->width - 1))
 					ft_display_map(map);
 			}
 			j = -1;
