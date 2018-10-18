@@ -1,7 +1,5 @@
 # BSQ
 
-Gros bsq sa mere 100% facile
+NOTE FINALE DU BSQ : 100
 
-- A voir peut etre pour modifier le str[BUF_SIZE] et height[BUF_SIZE]
-- Makefile a jour
-- Il manque juste la lecture sur sortie standard.
+Optimisations a prévoir, notamment en utilisatant un putstr plus opti !
